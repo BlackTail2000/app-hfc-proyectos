@@ -23,4 +23,16 @@ public class ProyectoController {
         String factura = facturacionClient.generarFactura();
         return "Proyecto Finalizado. Factura: " + factura;
     }
+
+    @GetMapping("/estado")
+    public String verEstadoProyecto(){
+        int random = (int) (Math.random()*2);
+        if (random == 1) return "Proyecto Activo";
+        else return "Proyecto Finalizado";
+    }
+    @GetMapping("/factura")
+    public String verFactura(){
+        int random = (int) (Math.random() * 100000)+5000;
+        return "Monto fina: S/." + random;
+    }
 }
